@@ -13,21 +13,20 @@ function togglePlay() {
     video[method]();
 }
 function updateButton() {
-    const icon = this.paused ? '►' : '▋▋';
-    console.log(icon);
+    const icon = this.paused ? '►' : '▋ ▋';
     toggle.textContent = icon;
 }
 
 function skip() {
-    console.log(this.dataset.skip);
     video.currentTime += parseFloat(this.dataset.skip);
 }
 function handleRangeUpdate() {
     video[this.name] = this.value;
 }
 function handleProgress() {
-    const percent = (video.currentTime / video.durarion) * 100;
-    progressBar.style.flexBasis = `${percent}%`;
+    const percent = (video.currentTime / video.duration) * 100;
+    const flexbasis = percent + '%'
+    progressBar.style.flexBasis = flexbasis
 }
 
 function scrub(e) {
