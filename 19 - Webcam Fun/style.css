@@ -8,12 +8,12 @@ html {
 
 html {
   font-size: 10px;
-  background:#ffc600;
+  background:#1C2833;
 }
 
 .photobooth {
   background:white;
-  max-width:150rem;
+  max-width:100rem;
   margin: 2rem auto;
   border-radius:2px;
 }
