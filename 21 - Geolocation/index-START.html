@@ -13,7 +13,7 @@
 
     <h1 class="speed">
         <span class="speed-value">0</span>
-        <span class="units">KM/H</span>
+        <span class="units">Precisión</span>
     </h1>
 
     <style>
@@ -62,8 +62,10 @@
 
         navigator.geolocation.watchPosition((data) => {
             console.log(data);
-            speed.textContent = data.coords.speed;
-            arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+            //speed.textContent = data.coords.speed
+            //presición del gps
+            speed.textContent = data.coords.accuracy;
+            arrow.style.transform = `rotate(${data.coords.accuracy}deg)`;
         }, (err) => {
             console.err(err);
             alert('HEY! Dejame hacer lo que quiero loco!');
