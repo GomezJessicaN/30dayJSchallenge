@@ -27,9 +27,9 @@ function paintToCanvas() {
         //take the pixels out
         let pixels = ctx.getImageData(0, 0, width, height);
         // pixels = redEffect(pixels);
-        //pixels = rgbSplit(pixels);
-        //ctx.globalAlpha = 0.8;
-        pixels = greenScreen(pixels);
+        pixels = rgbSplit(pixels);
+        ctx.globalAlpha = 0.8;
+        //pixels = greenScreen(pixels);
         ctx.putImageData(pixels, 0, 0);
     }, 16);
 }
@@ -78,12 +78,12 @@ function greenScreen(pixels) {
         blue = pixels.data[i + 2];
         alpha = pixels.data[i + 3];
 
-        if (red >= levels.rmin 
-            && green >= levels.gmin 
-            && blue >= levels.bmin 
-            && red <= levels.rmax 
-            && green <= levels.gmax 
-            && blue <= levels.bmax) {
+        if (red >= levels.rmin &&
+            green >= levels.gmin &&
+            blue >= levels.bmin &&
+            red <= levels.rmax &&
+            green <= levels.gmax &&
+            blue <= levels.bmax) {
             pixels.data[i + 3] = 0;
         }
     }
